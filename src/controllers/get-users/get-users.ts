@@ -1,4 +1,4 @@
-import { IGetUsersController, IGetUsersRepository } from "./protocols";
+import { IGetUsersController, IGetUsersRepository } from "./protocols"; //controls que chama o repository
 
 export class GetUsersController implements IGetUsersController {
   constructor(private readonly getUsersRepository: IGetUsersRepository) {} //esse que vai conectar com o mongoDb conectar ao repository

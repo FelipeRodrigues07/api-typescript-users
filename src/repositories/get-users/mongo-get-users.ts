@@ -1,4 +1,4 @@
-import { IGetUsersRepository } from "../../controllers/get-users/protocols";
+import { IGetUsersRepository } from "../../controllers/get-users/protocols"; //classe que implementa o repository e pega os usuarios do mongoDb
 import { MongoClient } from "../../database/mongo";
 import { User } from "../../models/users";
 
