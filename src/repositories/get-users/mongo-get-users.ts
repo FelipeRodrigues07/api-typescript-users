@@ -4,11 +4,14 @@ import { User } from "../../models/users";
 
 export class MongoGetUsersRepository implements IGetUsersRepository {
   async getUsers(): Promise<User[]> {
-  const users = await MongoClient.db.collection<User>('users').find({}).toArray() //vai pegar todos dados
+    const users = await MongoClient.db
+      .collection<Omit<User, "id">>("users") //tira o id remove a propriedade da interface
+      .find({})
+      .toArray(); //vai pegar todos dados
 
-  users[0].
-    return [
-        
-    ];
+    return users.map(({ _id, ...rest }) => ({
+      ...rest,
+      id: _id.toHexString(),
+    }));
   }
 } //quiser mudar o banco de dados

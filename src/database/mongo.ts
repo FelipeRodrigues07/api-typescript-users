@@ -12,7 +12,8 @@ export const MongoClient = {
     const client = new Mongo(url, { auth: { username, password } });
     const db = client.db("users-db");
 
-    (this.client = client), (this.db = db);
+    this.client = client;
+    this.db = db;
 
     console.log("connected to mongodb");
   },
