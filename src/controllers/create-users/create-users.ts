@@ -39,15 +39,10 @@ export class CreateUserController implements IcreteUserController {
         };
       }
 
-      //validaer se body existe
-      if (!httpRequest.body!) {
-        return {
-          statusCode: 400,
-          body: "Please specify a body",
-        };
-      }
+      const user = await this.createUserRepository.createUser(
+        httpRequest.body!
+      );
 
-      const user = await this.createUserRepository.createUser(httpRequest.body);
       return {
         statusCode: 201,
         body: user,
